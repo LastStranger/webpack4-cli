@@ -1,0 +1,19 @@
+{
+  "name": "webpack4-cli",
+  "version": "1.0.0",
+  "description": "my research about webpack4\r ```js\r console.log(\"waht's up?\")\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LastStranger/webpack4-cli.git"
+  },
+  "author": "LZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LastStranger/webpack4-cli/issues"
+  },
+  "homepage": "https://github.com/LastStranger/webpack4-cli#readme"
+}
