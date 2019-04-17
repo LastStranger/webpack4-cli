@@ -4,6 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const webpack = require('webpack');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const path = require("path");
 module.exports = {
@@ -152,6 +153,12 @@ module.exports = {
             chunkFilename: "css/chunk.[id].[contenthash].css",// chunkFilename代表的是从node_modules里面分离出来的css. 还有react-loadable异步加载的css
             // allChunks: true,
         }),
-        new webpack.HashedModuleIdsPlugin()
+        new webpack.HashedModuleIdsPlugin(),
+        // new WorkboxPlugin.GenerateSW({
+        //     // these options encourage the ServiceWorkers to get in there fast
+        //     // and not allow any straggling "old" SWs to hang around
+        //     clientsClaim: true,
+        //     skipWaiting: true
+        // }),
     ]
 };
