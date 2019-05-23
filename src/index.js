@@ -4,9 +4,12 @@ import "normalize.css";
 import {Router} from "@reach/router";
 import ComponentOne from "./components/component_one";
 import ContainerOne from "./containers/container_one";
+import {createStore} from 'redux';
+import {Provider} from "react-redux";
+import rootReducer from "./reducers";
 // import Loadable from "react-loadable";
 
-
+const store = createStore(rootReducer);
 // if ('serviceWorker' in navigator) {
 //     window.addEventListener('load', () => {
 //         navigator.serviceWorker.register('/service-worker.js').then(registration => {
@@ -27,10 +30,12 @@ if (module.hot) {
 // });
 
 const App = ({}) => (
-    <Router>
-        <ComponentOne path='one'/>
-        <ContainerOne path='two'/>
-    </Router>
+    <Provider store={store}>
+        <Router>
+            <ComponentOne path='one'/>
+            {/*<ContainerOne path='two'/>*/}
+        </Router>
+    </Provider>
 );
 
 render(<App/>, document.getElementById('app'));
