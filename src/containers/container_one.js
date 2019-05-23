@@ -1,8 +1,18 @@
 import React, {useEffect, useState} from 'react';
-
+// import {cube, square, a} from "../methods";
+// import abc from '../methods';
+import abc from '../methods';
 const ContainerOne = () => {
     const [item, setItem] = useState(0);
     const [itemTwo, setItemTwo] = useState(1);
+
+    useEffect(() => {
+        abc();
+        // const result = cube(2);
+        // const result2 = square(3);
+        // console.log(result2);
+        // console.log(result);
+    }, []);
 
     useEffect(() => {
      document.title = 'webpack';

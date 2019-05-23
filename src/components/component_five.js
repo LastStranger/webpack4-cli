@@ -1,13 +1,13 @@
 import React from 'react';
 import ComponentInside from "./component_four";
 
-const ComponentOne = () => {
+const ComponentFive = () => {
     return (
         <div>
-            this is component one
+            this is Component five;
             <ComponentInside/>
         </div>
     );
 };
 
-export default ComponentOne;
+export default ComponentFive;

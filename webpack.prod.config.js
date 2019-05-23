@@ -4,6 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const webpack = require('webpack');
+const AsyncChunkNames = require('webpack-async-chunk-names-plugin');
 // const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const path = require("path");
@@ -89,9 +90,9 @@ module.exports = {
                 use: [
                     {
                         loader: "html-loader",
-                        options: {
-                            minimize: true
-                        }
+                        // options: {
+                        //     minimize: true
+                        // }
                     }
                 ]
             },
@@ -123,21 +124,37 @@ module.exports = {
         namedChunks: true,
         runtimeChunk: true,
         splitChunks: {
-            chunks: 'all',
-            maxInitialRequests: Infinity,
-            minSize: 0,
+            // chunks: 'all',
+            // maxInitialRequests: Infinity,
+            // maxInitialRequests: 4,
+            // minSize: 0,
             cacheGroups: {
+                default: false,
+                vendors: false,
                 vendor: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name(module) {
-                        // get the name. E.g. node_modules/packageName/not/this/part.js
-                        // or node_modules/packageName
-                        const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                    // name of the chunk
+                    name: 'vendor',
 
-                        // npm package names are URL-safe, but some servers don't like @ symbols
-                        return `npm.${packageName.replace('@', '')}`;
-                    },
+                    // async + async chunks
+                    chunks: 'all',
+
+                    // import file path containing node_modules
+                    test: /node_modules/,
+
+                    // priority
+                    priority: 20
                 },
+
+                // common chunk
+                common: {
+                    name: 'common',
+                    minChunks: 2,
+                    chunks: 'all',
+                    priority: 10,
+                    reuseExistingChunk: true,
+                    enforce: true
+                }
+
             },
         },
     },
@@ -148,6 +165,7 @@ module.exports = {
             template: "src/index.html",
             // favicon:'./src/component/20180806050252871.ico',
         }),
+        new AsyncChunkNames(),
         new MiniCssExtractPlugin({
             filename: "css/[name].[contenthash].css",// filename代表的是没有异步加载的css和从node_modules里面分离出来的css那部分css, 简单来说就是初始打包成的那块css
             chunkFilename: "css/chunk.[id].[contenthash].css",// chunkFilename代表的是从node_modules里面分离出来的css. 还有react-loadable异步加载的css

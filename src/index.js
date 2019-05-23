@@ -4,7 +4,7 @@ import "normalize.css";
 import {Router} from "@reach/router";
 import ComponentOne from "./components/component_one";
 import ContainerOne from "./containers/container_one";
-// import Loadable from "react-loadable";
+import Loadable from "react-loadable";
 
 
 // if ('serviceWorker' in navigator) {
@@ -25,11 +25,22 @@ if (module.hot) {
 //    loader: () => import('./components/component_one'),
 //    loading: Loading,
 // });
+const LoadableThreeComponent = Loadable({
+    loader: () => import('./components/component_three'),
+    loading: () => <div>loading</div>
+});
+
+const LoadableFiveComponent = Loadable({
+    loader: () => import('./components/component_five'),
+    loading: () => <div>loading</div>
+});
 
 const App = ({}) => (
     <Router>
         <ComponentOne path='one'/>
         <ContainerOne path='two'/>
+        <LoadableThreeComponent path='three'/>
+        <LoadableFiveComponent path='five'/>
     </Router>
 );
 
