@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {addToArr, decrease, increase} from "../actions";
+import {addToArr, decrease, getInfo, increase} from "../actions";
 import axios from 'axios';
 
 const ComponentOne = (props) => {
@@ -48,6 +48,7 @@ const ComponentOne = (props) => {
             <button onClick={() => props.addToArr("balala")}>add</button>
             <button onClick={() => setNum(num+1)}>num change button</button>
             <button onClick={requestSomething}>async button</button>
+            <button onClick={props.getInfo}>async button</button>
         </div>
     );
 };
@@ -58,4 +59,4 @@ const mapStateToProps = (state) =>{
     }
 };
 
-export default connect(mapStateToProps,{increase, decrease, addToArr})(ComponentOne);
+export default connect(mapStateToProps,{increase, decrease, addToArr, getInfo})(ComponentOne);

@@ -1,4 +1,4 @@
-import {ADD, DECREASE, INCREASE} from "../actions";
+import {ADD, DECREASE, GETINFO, INCREASE} from "../actions";
 
 
 const initialState = {
@@ -22,6 +22,11 @@ const rootReducer = (state=initialState, action) => {
             return{
                 ...state,
                 arr: [...state.arr, action.number]
+            };
+        case GETINFO:
+            return {
+                ...state,
+                count: state.count + action.number
             };
         default:
             return state;

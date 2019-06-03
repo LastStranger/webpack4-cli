@@ -4,12 +4,13 @@ import "normalize.css";
 import {Router} from "@reach/router";
 import ComponentOne from "./components/component_one";
 import ContainerOne from "./containers/container_one";
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from "react-redux";
 import rootReducer from "./reducers";
+import thunk from 'redux-thunk';
 // import Loadable from "react-loadable";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 // if ('serviceWorker' in navigator) {
 //     window.addEventListener('load', () => {
 //         navigator.serviceWorker.register('/service-worker.js').then(registration => {
