@@ -1,0 +1,12 @@
+/* uncss:ignore */
+.component_one_css{
+    background-color: greenyellow;
+}
+
+#app{
+    background-color: cornflowerblue;
+}
+
+.garbage{
+    background-color: navajowhite;
+}

@@ -7,6 +7,14 @@ module.exports = ({env}) => ({
         '>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9',
       ]
     },
+      // 'postcss-uncss':{
+      //   // "html": ['http://localhost:3456'],
+      //   //   html: ['src/**/*.html'],
+      //   //   html: ['src/index.html'],
+      // },
+      // 'uncss': {
+      // html: ['src/*.html']
+      // },
     // 'cssnano': env === 'production' ? {} : false,
     /*这个和OptimizeCSSAssetsPlugin
     是差不多一样的css压缩效果,使用这个会多少个类似css的文件就有多少行css,用那个只有两行,
@@ -17,4 +25,7 @@ module.exports = ({env}) => ({
   // plugins: [
   //   ctx.env === 'production' ? require('cssnano')() : console.log(ctx.env.length)
   // ]
+  //   plugins: [
+  //       require('postcss-uncss')
+  //   ]
 });

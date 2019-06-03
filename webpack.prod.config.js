@@ -25,11 +25,11 @@ module.exports = {
                     {loader: MiniCssExtractPlugin.loader,},
                     {
                         loader: "css-loader",
-                        options: {
-                            modules: true,
-                            localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                            sourceMap: true, /*因为打包后的文件都是被hash过和压缩过,所以当生产环境出问题了,可以方便的定位到原位置上*/
-                        }
+                        // options: {
+                        //     modules: true,
+                        //     localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                        //     sourceMap: true, /*因为打包后的文件都是被hash过和压缩过,所以当生产环境出问题了,可以方便的定位到原位置上*/
+                        // }
                     },
                     {loader: "postcss-loader"}
                 ],
@@ -50,11 +50,11 @@ module.exports = {
                     {loader: MiniCssExtractPlugin.loader,},
                     {
                         loader: "css-loader",
-                        options: {
-                            modules: true,
-                            localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                            sourceMap: true,
-                        }
+                        // options: {
+                        //     modules: true,
+                        //     localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                        //     sourceMap: true,
+                        // }
                     },
                     {loader: "postcss-loader"},
                     {
