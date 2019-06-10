@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {addToArr, decrease, getInfo, increase} from "../actions";
 import axios from 'axios';
+import {makeDouble} from "../actions/temp";
 
 const ComponentOne = (props) => {
     console.log(props);
@@ -49,14 +50,18 @@ const ComponentOne = (props) => {
             <button onClick={() => setNum(num+1)}>num change button</button>
             <button onClick={requestSomething}>async button</button>
             <button onClick={props.getInfo}>async button</button>
+            <button onClick={() => props.makeDouble(2)}>make it double</button>
+            <p>the double number is {props.tempState.number}</p>
         </div>
     );
 };
 
 const mapStateToProps = (state) =>{
+    console.log(state);
     return {
-        state
+        state: state.ReducerOne,
+        tempState: state.tempReducer
     }
 };
 
-export default connect(mapStateToProps,{increase, decrease, addToArr, getInfo})(ComponentOne);
+export default connect(mapStateToProps,{increase, decrease, addToArr, getInfo, makeDouble})(ComponentOne);
