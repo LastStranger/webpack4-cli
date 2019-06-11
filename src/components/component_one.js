@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {addToArr, decrease, getInfo, increase} from "../actions";
 import axios from 'axios';
-import {makeDouble} from "../actions/temp";
+import {decreaseTemp, makeDouble} from "../actions/temp";
 
 const ComponentOne = (props) => {
     console.log(props);
@@ -52,6 +52,8 @@ const ComponentOne = (props) => {
             <button onClick={props.getInfo}>async button</button>
             <button onClick={() => props.makeDouble(2)}>make it double</button>
             <p>the double number is {props.tempState.number}</p>
+            <button onClick={() => props.decreaseTemp(2)}>decrease the number</button>
+            <p>the number is decreased to {props.tempState.number}</p>
         </div>
     );
 };
@@ -64,4 +66,4 @@ const mapStateToProps = (state) =>{
     }
 };
 
-export default connect(mapStateToProps,{increase, decrease, addToArr, getInfo, makeDouble})(ComponentOne);
+export default connect(mapStateToProps,{increase, decrease, addToArr, getInfo, makeDouble, decreaseTemp})(ComponentOne);
