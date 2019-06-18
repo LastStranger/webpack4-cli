@@ -35,6 +35,7 @@ const ContainerOne = () => {
             <button onClick={handleItemChange}>change the item</button>
             <br/>
             <button onClick={handleItemTwoChange}>change the itemTwo</button>
+            <button className='unique'>unique button</button>
         </div>
     );
 };
