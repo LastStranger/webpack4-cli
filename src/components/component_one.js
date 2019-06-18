@@ -7,6 +7,19 @@ import ComponentThree from "./component_three";
 let abc = 1;
 console.log("abc is up to me");
 let edg = 2;
+const useAPI = url => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        getData();
+    },[]);
+    const getData = async () => {
+        const res = await axios.get(url);
+        setData(res.data)
+    };
+    return data;
+};
+
 const ComponentOne = (props) => {
     console.log(props);
     console.log("ComponentRender");
@@ -14,6 +27,12 @@ const ComponentOne = (props) => {
     const [message, setMessage] = useState('nothing');
     const [temp, setTemp] = useState(1);
     const a = useRef('');
+    const data = useAPI('https://fortnite-public-api.theapinetwork.com/prod09/item/get?ids=61ea3e9-8438e42-f53d351-e53a5ce');
+
+    useEffect(() => {
+        console.log("this is data coming this is data coming", data);
+    }, [data])
+
     useEffect(() => {
         console.log("a is changing");
     }, [num])
