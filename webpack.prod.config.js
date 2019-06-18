@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const webpack = require('webpack');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 // const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const path = require("path");
@@ -145,6 +146,7 @@ module.exports = {
 
     plugins: [
         new CleanWebpackPlugin(),
+        new LodashModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: "src/index.html",
             // favicon:'./src/component/20180806050252871.ico',
