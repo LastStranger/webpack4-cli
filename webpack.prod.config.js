@@ -4,6 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const webpack = require('webpack');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 // const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const path = require("path");
@@ -154,6 +155,14 @@ module.exports = {
             // allChunks: true,
         }),
         new webpack.HashedModuleIdsPlugin(),
+        new CompressionWebpackPlugin(),//这个插件是用来压缩代码的gz
+        // new CompressionWebpackPlugin({
+        //     asset: '[path].gz[query]',
+        //     algorithm: 'gzip',
+        //     test: new RegExp('\\.(js|css)$'),
+        //     threshold: 10240,
+        //     minRatio: 0.8
+        // })
         // new WorkboxPlugin.GenerateSW({
         //     // these options encourage the ServiceWorkers to get in there fast
         //     // and not allow any straggling "old" SWs to hang around

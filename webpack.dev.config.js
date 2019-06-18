@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 let webpack = require("webpack");
 const path = require("path");
@@ -90,7 +91,7 @@ module.exports = {
         inline: true,
         // contentBase: path.resolve(__dirname, "dist"),// 配置开发服务运行时的文件根目录
         host: "localhost",// 开发服务器监听的主机地址
-        // compress: true,   // 开发服务器是否启动gzip等压缩
+        compress: true,   // 开发服务器是否启动gzip等压缩
         port: 8989,        // 开发服务器监听的端口
     },
     optimization: {
@@ -123,6 +124,7 @@ module.exports = {
             chunkFilename: "css/chunk.[id].[contenthash].css",// chunkFilename代表的是从node_modules里面分离出来的css. 还有react-loadable异步加载的css
             // allChunks: true,
         }),
+        new CompressionWebpackPlugin()
     ]
 };
 
