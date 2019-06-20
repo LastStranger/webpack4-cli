@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CompressionWebpackPlugin = require('compression-webpack-plugin');
+// const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 let webpack = require("webpack");
 const path = require("path");
@@ -124,7 +124,7 @@ module.exports = {
             chunkFilename: "css/chunk.[id].[contenthash].css",// chunkFilename代表的是从node_modules里面分离出来的css. 还有react-loadable异步加载的css
             // allChunks: true,
         }),
-        new CompressionWebpackPlugin()
+        // new CompressionWebpackPlugin()
     ]
 };
 
