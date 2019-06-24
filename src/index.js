@@ -2,24 +2,19 @@ import React from 'react';
 import {render} from "react-dom";
 import "normalize.css";
 import {Router} from "@reach/router";
-import ComponentOne from "./components/component_one";
-import ContainerOne from "./containers/container_one";
-import {createStore, applyMiddleware} from 'redux';
-import {Provider} from "react-redux";
-import rootReducer from "./reducers";
-import thunk from 'redux-thunk';
+import ComponentTwo from "./components/component_two";
+// import ComponentOne from "./components/component_one";
+// import ContainerOne from "./containers/container_one";
+// import {createStore, applyMiddleware} from 'redux';
+// import {Provider} from "react-redux";
+// import rootReducer from "./reducers";
+// import thunk from 'redux-thunk';
 // import Loadable from "react-loadable";
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
-// if ('serviceWorker' in navigator) {
-//     window.addEventListener('load', () => {
-//         navigator.serviceWorker.register('/service-worker.js').then(registration => {
-//             console.log('SW registered: ', registration);
-//         }).catch(registrationError => {
-//             console.log('SW registration failed: ', registrationError);
-//         });
-//     });
-// }
+// const store = createStore(rootReducer, applyMiddleware(thunk));
+
+export const ConfigContext = React.createContext();
+
 if (module.hot) {
     // 实现热更新
     module.hot.accept();
@@ -29,14 +24,17 @@ if (module.hot) {
 //    loader: () => import('./components/component_one'),
 //    loading: Loading,
 // });
+const configValue = {
+    something: "belong to glob",
+};
 
 const App = ({}) => (
-    <Provider store={store}>
+    <ConfigContext.Provider value={configValue}>
         <Router>
-            <ComponentOne path='one'/>
-            {/*<ContainerOne path='two'/>*/}
+            <ComponentTwo path='two'/>
         </Router>
-    </Provider>
-);
+    </ConfigContext.Provider>
+)
+;
 
 render(<App/>, document.getElementById('app'));
