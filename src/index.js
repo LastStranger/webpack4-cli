@@ -3,6 +3,7 @@ import {render} from "react-dom";
 import "normalize.css";
 import {Router} from "@reach/router";
 import ComponentTwo from "./components/component_two";
+import ComponentTest from "./components/test/component_test";
 // import ComponentOne from "./components/component_one";
 // import ContainerOne from "./containers/container_one";
 // import {createStore, applyMiddleware} from 'redux';
@@ -32,6 +33,7 @@ const App = ({}) => (
     <ConfigContext.Provider value={configValue}>
         <Router>
             <ComponentTwo path='two'/>
+            <ComponentTest path='test'/>
         </Router>
     </ConfigContext.Provider>
 )
