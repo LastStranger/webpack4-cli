@@ -17,7 +17,7 @@ const ComponentOne = () => {
     // );
     return (
             <div className="component_one_css">
-                this is component one
+                this is component one add new test,test two,test three
             </div>
     )
 };

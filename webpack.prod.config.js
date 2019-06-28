@@ -171,6 +171,7 @@ module.exports = {
         //     clientsClaim: true,
         //     skipWaiting: true
         // }),
+        /*workbox should always be last called*/
         new WorkboxWebpackPlugin.InjectManifest({
             swSrc: "./src/src-sw.js",
             swDest: "sw.js"
