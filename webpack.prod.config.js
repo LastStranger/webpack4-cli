@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const webpack = require('webpack');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-// const WorkboxPlugin = require('workbox-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 const path = require("path");
 module.exports = {
@@ -171,5 +171,9 @@ module.exports = {
         //     clientsClaim: true,
         //     skipWaiting: true
         // }),
+        new WorkboxWebpackPlugin.InjectManifest({
+            swSrc: "./src/src-sw.js",
+            swDest: "sw.js"
+        })
     ]
 };

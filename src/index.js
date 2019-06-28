@@ -16,6 +16,11 @@ import ContainerOne from "./containers/container_one";
 //         });
 //     });
 // }
+if ("serviceWorker" in navigator){
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js");
+    })
+}
 if (module.hot) {
     // 实现热更新
     module.hot.accept();
@@ -28,6 +33,7 @@ if (module.hot) {
 
 const App = ({}) => (
     <Router>
+        <ComponentOne path='/'/>
         <ComponentOne path='one'/>
         <ContainerOne path='two'/>
     </Router>
