@@ -4,6 +4,7 @@ import "normalize.css";
 import {Router} from "@reach/router";
 import ComponentOne from "./components/component_one";
 import ContainerOne from "./containers/container_one";
+import ComponentThree from "./components/component_three";
 // import Loadable from "react-loadable";
 
 
@@ -36,6 +37,7 @@ const App = ({}) => (
         <ComponentOne path='/'/>
         <ComponentOne path='one'/>
         <ContainerOne path='two'/>
+        <ComponentThree path='three'/>
     </Router>
 );
 

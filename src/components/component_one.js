@@ -4,6 +4,8 @@ import React from 'react';
 // import css from '../assets/component_one_css.css';
 import "../assets/component_one_css.css";
 import _ from "lodash";
+import one from "../assets/images/1.jpg";
+import two from "../assets/images/2.jpg";
 // import { add } from 'lodash/fp';
 const ComponentOne = () => {
     // const addOne = add(1);
@@ -17,7 +19,9 @@ const ComponentOne = () => {
     // );
     return (
             <div className="component_one_css">
-                this is component one add new test,test two,test three
+                this is component one,
+                <div><img src={one} alt=""/></div>
+                <div><img src={two} alt=""/></div>
             </div>
     )
 };

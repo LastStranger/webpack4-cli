@@ -1,9 +1,17 @@
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
-workbox.routing.registerRoute(
-    new RegExp('http://localhost:3456/'),
-    new workbox.strategies.StaleWhileRevalidate()
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
+workbox.routing.registerNavigationRoute(
+    // Assuming '/single-page-app.html' has been precached,
+    // look up its corresponding cache key.
+    workbox.precaching.getCacheKeyForURL('/index.html')
 );
+// workbox.routing.registerRoute(
+//     new RegExp('http://localhost:3456/'),
+//     new workbox.strategies.StaleWhileRevalidate()
+//     // new workbox.strategies.NetworkFirst()
+// );
 //add in src/src-sw.js
 // workbox.routing.registerRoute(
 //     /https:\/\/api\.exchangeratesapi\.io\/latest/,
