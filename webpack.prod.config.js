@@ -7,6 +7,7 @@ const webpack = require('webpack');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const path = require("path");
 module.exports = {
@@ -18,6 +19,9 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: "js/[name].-[contenthash].js",
         publicPath: "/" /*打包完成时当前目录下的，一般情况下publicPath应该以'/'结尾，而其他loader或插件的配置不要以'/'开头*/
+    },
+    resolve: {
+        alias:{'@ant-design/icons/lib/dist$': path.resolve(__dirname, 'utils/antdIcon.js')},
     },
     module: {
         rules: [
@@ -171,6 +175,7 @@ module.exports = {
         //     clientsClaim: true,
         //     skipWaiting: true
         // }),
+        new BundleAnalyzerPlugin(),
         /*workbox should always be last called*/
         new WorkboxWebpackPlugin.InjectManifest({
             swSrc: "./src/src-sw.js",
