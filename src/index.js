@@ -18,8 +18,12 @@ import ComponentThree from "./components/component_three";
 //     });
 // }
 if ("serviceWorker" in navigator){
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/sw.js");
+    window.addEventListener("load", async () => {
+        try {
+            await navigator.serviceWorker.register("/sw.js");
+        } catch (e) {
+            console.log('Sw registration failed');
+        }
     })
 }
 if (module.hot) {

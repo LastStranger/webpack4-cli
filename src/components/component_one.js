@@ -6,6 +6,9 @@ import "../assets/component_one_css.css";
 import _ from "lodash";
 import one from "../assets/images/1.jpg";
 import two from "../assets/images/2.jpg";
+import three from "../assets/images/3.jpg";
+import four from "../assets/images/4.jpg";
+import five from "../assets/images/5.jpg";
 // import { add } from 'lodash/fp';
 const ComponentOne = () => {
     // const addOne = add(1);
@@ -22,6 +25,9 @@ const ComponentOne = () => {
                 this is component one,
                 <div><img src={one} alt=""/></div>
                 <div><img src={two} alt=""/></div>
+                <div><img src={three} alt=""/></div>
+                <div><img src={four} alt=""/></div>
+                <div><img src={five} alt=""/></div>
             </div>
     )
 };
