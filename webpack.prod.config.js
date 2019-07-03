@@ -7,7 +7,7 @@ const webpack = require('webpack');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const path = require("path");
 module.exports = {
@@ -169,17 +169,15 @@ module.exports = {
         //     threshold: 10240,
         //     minRatio: 0.8
         // })
-        // new WorkboxPlugin.GenerateSW({
-        //     // these options encourage the ServiceWorkers to get in there fast
-        //     // and not allow any straggling "old" SWs to hang around
-        //     clientsClaim: true,
-        //     skipWaiting: true
-        // }),
-        new BundleAnalyzerPlugin(),
+
+        /*开启强大的的代码分析神器*/
+        // new BundleAnalyzerPlugin(),
+
         /*workbox should always be last called*/
         new WorkboxWebpackPlugin.InjectManifest({
             swSrc: "./src/src-sw.js",
-            swDest: "sw.js"
+            swDest: "sw.js",
+            importWorkboxFrom: 'local'// workbox的包路径,默认是cdn,由于cdn需要Google的服务,所以这里选择将包本地化,最好换成公司的cdn
         })
     ]
 };
