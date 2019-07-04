@@ -12,11 +12,11 @@ app.use(history());// 这个history必须放在express.static上面,不然histor
 app.use('/', express.static(path.join(__dirname, "/dist"), options));
 
 app.get("/", function(req, res) {
-  res.sendFile(path.resolve(__dirname, "dist/index.html"), function(err) {
-    if (err) {
-      res.status(500).send(err)
-    }
-  });
+    res.sendFile(path.resolve(__dirname, "dist/index.html"), function(err) {
+        if (err) {
+            res.status(500).send(err)
+        }
+    });
 });
 
 // server.use(express.static('dist'));
@@ -27,5 +27,5 @@ app.get("/", function(req, res) {
 // });
 
 app.listen(3456, () => {
-  console.log("the server is listening at 3456 !");
+    console.log("the server is listening at 3456 !");
 });

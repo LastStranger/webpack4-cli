@@ -22,6 +22,7 @@ module.exports = {
     },
     resolve: {
         alias:{'@ant-design/icons/lib/dist$': path.resolve(__dirname, 'utils/antdIcon.js')},
+        extensions: ['.ts', '.tsx', '.js']
     },
     module: {
         rules: [
@@ -90,6 +91,7 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: {loader: "babel-loader",}
             },
+            { test: /\.tsx?$/,  loaders: ['babel-loader', 'ts-loader']},
             {
                 test: /\.html$/,
                 use: [
@@ -170,7 +172,7 @@ module.exports = {
         //     minRatio: 0.8
         // })
 
-        /*开启强大的的代码分析神器*/
+        /*开启强大的的包大小分析神器*/
         // new BundleAnalyzerPlugin(),
 
         /*workbox should always be last called*/
