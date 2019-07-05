@@ -22,8 +22,8 @@ npm run build
 10. 支持根据文件命名chunks,可以清楚的了解到,每个页面加载了哪些组件和哪些node_modules
 11. 支持lodash的按需加载
 12. 支持antd UI库, 修复了antd 3的bug(该bug导致即使是使用了一个antd的一个button,也会将500多kb的icons打包进来)
-13.添加了BundleAnalyzerPlugin这个强大的包大小分析神器
-14.本地添加了node服务(server.js), 使其本地也能运行打包后的项目,运行代码如下
+13. 添加了BundleAnalyzerPlugin这个强大的包大小分析神器
+14. 本地添加了node服务(server.js), 使其本地也能运行打包后的项目,运行代码如下
 ```js
 node server
 ```
