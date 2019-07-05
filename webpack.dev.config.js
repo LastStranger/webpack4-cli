@@ -12,6 +12,10 @@ module.exports = {
         filename: "js/[name].-[hash].js",
         publicPath: "/"
     },
+    resolve: {
+        alias:{'@ant-design/icons/lib/dist$': path.resolve(__dirname, 'utils/antdIcon.js')},
+        extensions: ['.ts', '.tsx', '.js']
+    },
     module: {
         rules: [
             {
@@ -70,6 +74,7 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: {loader: "babel-loader",}
             },
+            { test: /\.tsx?$/,  loaders: ['babel-loader', 'ts-loader']},
 
             {
                 test: /\.(png|svg|jpg|gif)$/,
