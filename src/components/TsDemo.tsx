@@ -1,8 +1,9 @@
 import * as React from 'react';
 
 const TsDemo = () => {
+    const el = document.getElementsByClassName('tsDemo');
     return (
-        <div>
+        <div className='tsDemo'>
             this is a tsDemo
         </div>
     );
