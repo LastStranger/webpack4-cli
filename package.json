@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "if you're using windows, just run NODE_ENV=production",
+    "lint": "tslint --project .",
     "start": "set NODE_ENV=development&&webpack-dev-server  --mode development --progress --config webpack.dev.config.js",
     "build": "set NODE_ENV=production&&webpack --progress --mode production --config webpack.prod.config.js"
   },
@@ -43,6 +44,9 @@
     "postcss-uncss": "^0.16.1",
     "terser-webpack-plugin": "^1.2.3",
     "ts-loader": "^6.0.4",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.5.2",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "uncss": "^0.17.0",
