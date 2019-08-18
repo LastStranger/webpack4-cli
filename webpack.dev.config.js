@@ -74,8 +74,9 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: {loader: "babel-loader",}
             },
-            { test: /\.tsx?$/,  loaders: ['babel-loader', 'ts-loader']},
-
+            // { test: /\.tsx?$/,  loaders: ['babel-loader', 'ts-loader']},
+            /*新版不用这个ts-loader了,由babel进行处理*/
+            { test: /\.tsx?$/,  loaders: ['babel-loader']},
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
