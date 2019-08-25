@@ -1,13 +1,14 @@
+// import 'core-js/stable'; // 貌似babelrc配置了corejs就不需要这个了
+import 'regenerator-runtime/runtime'; // 添加这个才能使用async await语法,之前是使用
 import React from 'react';
-import {render} from "react-dom";
-import "normalize.css";
-import {Router} from "@reach/router";
-import ComponentOne from "./components/component_one";
-import ContainerOne from "./containers/container_one";
-import ComponentThree from "./components/component_three";
-import TsDemo from "./components/TsDemo";
+import { render } from 'react-dom';
+import 'normalize.css';
+import { Router } from '@reach/router';
+import ComponentOne from './components/component_one';
+import ContainerOne from './containers/container_one';
+import ComponentThree from './components/component_three';
+import TsDemo from './components/TsDemo';
 // import Loadable from "react-loadable";
-
 
 // if ('serviceWorker' in navigator) {
 //     window.addEventListener('load', () => {
@@ -18,14 +19,14 @@ import TsDemo from "./components/TsDemo";
 //         });
 //     });
 // }
-if ("serviceWorker" in navigator){
-    window.addEventListener("load", async () => {
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
         try {
-            await navigator.serviceWorker.register("/sw.js");
+            await navigator.serviceWorker.register('/sw.js');
         } catch (e) {
             console.log('Sw registration failed');
         }
-    })
+    });
 }
 if (module.hot) {
     // 实现热更新
@@ -39,12 +40,12 @@ if (module.hot) {
 
 const App = ({}) => (
     <Router>
-        <ComponentOne path='/'/>
-        <ComponentOne path='one'/>
-        <ContainerOne path='two'/>
-        <ComponentThree path='three'/>
-        <TsDemo path='four'/>
+        <ComponentOne path="/" />
+        <ComponentOne path="one" />
+        <ContainerOne path="two" />
+        <ComponentThree path="three" />
+        <TsDemo path="four" />
     </Router>
 );
 
-render(<App/>, document.getElementById('app'));
+render(<App />, document.getElementById('app'));
