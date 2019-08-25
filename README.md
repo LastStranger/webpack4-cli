@@ -28,6 +28,8 @@ npm run build
 node server
 ```
 15. 采用express框架,默认20分钟的最大缓存时间,采用了服务端gzip压缩,配合webpack的CompressionWebpackPlugin,使得打包后的gz文件可以直接被服务器端调用,避免了服务器动态压缩的CPU压力
+16. 增加了prittiercc配置文件,
+17. 增加了tslint配置文件
 
 ****
 ### 注意事项
