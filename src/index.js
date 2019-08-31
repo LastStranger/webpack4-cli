@@ -8,6 +8,7 @@ import ComponentOne from './components/component_one';
 import ContainerOne from './containers/container_one';
 import ComponentThree from './components/component_three';
 import TsDemo from './components/TsDemo';
+import ComponentFive from './components/componentFive';
 // import Loadable from "react-loadable";
 
 // if ('serviceWorker' in navigator) {
@@ -44,6 +45,7 @@ const App = ({}) => (
         <ComponentOne path="one" />
         <ContainerOne path="two" />
         <ComponentThree path="three" />
+        <ComponentFive path="five" />
         <TsDemo path="four" />
     </Router>
 );

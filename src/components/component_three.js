@@ -1,15 +1,16 @@
-import React from 'react'
-import { Button } from 'antd'
+import { Button } from 'antd';
+import React from 'react';
+
 const ComponentThree = () => {
     const func = async () => {
-        console.log('dd')
-    }
+        console.log('dd');
+    };
     return (
         <div>
             this is the componentThree
             <Button>dd</Button>
         </div>
-    )
-}
+    );
+};
 
-export default ComponentThree
+export default ComponentThree;

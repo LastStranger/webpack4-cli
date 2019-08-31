@@ -1,29 +1,30 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+
 // import "../assets/component_one.less";
 // import css from "../assets/component_one.less";
-import css from '../assets/component_one_css.css'
+import css from '../assets/component_one_css.css';
 // import "../assets/component_one_css.css";
-import _ from 'lodash'
-import one from '../assets/images/1.jpg'
-import two from '../assets/images/2.jpg'
-import three from '../assets/images/3.jpg'
-import four from '../assets/images/4.jpg'
-import five from '../assets/images/5.jpg'
+import _ from 'lodash';
+import one from '../assets/images/1.jpg';
+import two from '../assets/images/2.jpg';
+import three from '../assets/images/3.jpg';
+import four from '../assets/images/4.jpg';
+import five from '../assets/images/5.jpg';
 // import { add } from 'lodash/fp';
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import { throttle } from 'lodash'
-import ComponentTwo from './component_two'
-import ComponentThree from './component_three'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { throttle } from 'lodash';
+import ComponentTwo from './component_two';
+import ComponentThree from './component_three';
 
 const ComponentOne = () => {
-    const student = 1
+    const student = 1;
     // const addOne = add(1);
     // const arr = [1,2,3,4,5];
     // const res = _.map(arr, (each) => {return each * each});
     // console.log(res);
-    const lastEl = useRef(null)
-    const [arr, setArr] = useState([])
+    const lastEl = useRef(null);
+    const [arr, setArr] = useState([]);
     // const [one, setOne] = useState(1);
     // return (
     //     <div className={css.component_one_css}>
@@ -34,50 +35,50 @@ const ComponentOne = () => {
     //     AOS.init();
     // }, []);
     useEffect(() => {
-        AOS.init()
-        window.addEventListener('load', AOS.refresh)
+        AOS.init();
+        window.addEventListener('load', AOS.refresh);
         // return window.removeEventListener('load', AOS.refresh);
-    }, [])
+    }, []);
 
     useEffect(() => {
         // window.addEventListener('scroll', addNewEle);
-        window.addEventListener('scroll', containEl)
+        window.addEventListener('scroll', containEl);
         // window.addEventListener('click', addNewEle);
-        AOS.refresh()
+        AOS.refresh();
         console.log(
             'what we have lost will never be returned to us , this is the real life'
-        )
+        );
         // window.addEventListener('scroll', addNewEle);
         return () => {
             // window.removeEventListener('scroll', addNewEle)
-            window.removeEventListener('scroll', containEl)
+            window.removeEventListener('scroll', containEl);
             // window.removeEventListener('click', addNewEle)
-        }
+        };
         // lastEl.current.addEventListener('scroll', function () {
         //     console.log('ddd');
         // })
-    }, [arr])
+    }, [arr]);
 
     const addNewEle = () => {
-        console.log('scrolling listening')
+        console.log('scrolling listening');
         const height = document
             .querySelector('.last-one')
-            .getBoundingClientRect().bottom
+            .getBoundingClientRect().bottom;
         if (height < 800) {
-            console.log('d')
-            const tempArr = [two, two, two, two, three, two, two, two]
+            console.log('d');
+            const tempArr = [two, two, two, two, three, two, two, two];
             if (tempArr.length !== arr.length) {
-                console.log(tempArr.length)
-                console.log(arr.length)
-                setArr(tempArr)
+                console.log(tempArr.length);
+                console.log(arr.length);
+                setArr(tempArr);
             }
         }
-    }
-    const containEl = throttle(addNewEle, 100)
+    };
+    const containEl = throttle(addNewEle, 100);
 
     console.log(
         'what we have lost will never be returned to us, this is the real life , my friend'
-    )
+    );
     return (
         <div className={css.component_one_css}>
             this is component one,
@@ -118,8 +119,8 @@ const ComponentOne = () => {
             <ComponentTwo></ComponentTwo>
             <ComponentThree />
         </div>
-    )
-}
+    );
+};
 {
     /*<div className={css["component-one"]}>*/
 }
@@ -130,4 +131,4 @@ const ComponentOne = () => {
     /*</div>*/
 }
 
-export default ComponentOne
+export default ComponentOne;
