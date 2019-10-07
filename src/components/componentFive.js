@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Button, Form, Input } from 'antd';
 
 const FormItem = Form.Item;
 
@@ -20,6 +20,7 @@ class ComponentFive extends React.Component {
             }
         });
     };
+
     render() {
         const { getFieldDecorator } = this.props.form;
         const tailFormItemLayout = {
@@ -56,7 +57,7 @@ class ComponentFive extends React.Component {
                                 },
                             ],
                             whitespace: true,
-                        })(<Input />)}
+                        })(<Input/>)}
                     </FormItem>
                     <FormItem label="what's your problem, say that again?">
                         {getFieldDecorator('problemAgain', {
@@ -66,7 +67,7 @@ class ComponentFive extends React.Component {
                                     message: 'The input is not valid E-mail!',
                                 },
                             ],
-                        })(<Input />)}
+                        })(<Input/>)}
                     </FormItem>
                     <FormItem {...tailFormItemLayout}>
                         <Button onClick={this.handleSubmit}>提交</Button>
@@ -79,7 +80,7 @@ class ComponentFive extends React.Component {
                                     message: 'The input is not valid E-mail!',
                                 },
                             ],
-                        })(<Input />)}
+                        })(<Input/>)}
                     </FormItem>
                     <FormItem {...tailFormItemLayout}>
                         <Button onClick={this.handleSubmit}>提交</Button>
@@ -92,7 +93,7 @@ class ComponentFive extends React.Component {
                                     message: 'The input is not valid E-mail!',
                                 },
                             ],
-                        })(<Input />)}
+                        })(<Input/>)}
                     </FormItem>
                     <FormItem {...tailFormItemLayout}>
                         <Button onClick={this.handleSubmit}>提交</Button>
@@ -106,7 +107,7 @@ class ComponentFive extends React.Component {
                                     message: 'The input is not valid E-mail!',
                                 },
                             ],
-                        })(<Input />)}
+                        })(<Input/>)}
                     </FormItem>
                     <FormItem {...tailFormItemLayout}>
                         <Button onClick={this.handleSubmit}>提交</Button>

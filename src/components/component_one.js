@@ -1,11 +1,9 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-
+import React, { useEffect, useRef, useState } from 'react';
 // import "../assets/component_one.less";
 // import css from "../assets/component_one.less";
 import css from '../assets/component_one_css.css';
 // import "../assets/component_one_css.css";
-import _ from 'lodash';
-import one from '../assets/images/1.jpg';
+import { throttle } from 'lodash';
 import two from '../assets/images/2.jpg';
 import three from '../assets/images/3.jpg';
 import four from '../assets/images/4.jpg';
@@ -13,7 +11,6 @@ import five from '../assets/images/5.jpg';
 // import { add } from 'lodash/fp';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { throttle } from 'lodash';
 import ComponentTwo from './component_two';
 import ComponentThree from './component_three';
 
