@@ -1,12 +1,10 @@
 /*插件的顺序貌似会影响打包的结果,测试结果显示如果cssnano不是最后一个,css的压缩就会失败*/
-module.exports = ({env}) => ({
+module.exports = ({ env }) => ({
   plugins: {
     // 'postcss-px2rem': {remUnit: 75},
-    'autoprefixer': {
-      browsers: [
-        '>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9',
-      ]
-    },
+    autoprefixer: {
+      browsers: [">1%", "last 4 versions", "Firefox ESR", "not ie < 9"]
+    }
     // 'cssnano': env === 'production' ? {} : false,
     /*这个和OptimizeCSSAssetsPlugin
     是差不多一样的css压缩效果,使用这个会多少个类似css的文件就有多少行css,用那个只有两行,

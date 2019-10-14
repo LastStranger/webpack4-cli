@@ -1,19 +1,14 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from "react";
 
-const ComponentThree = ({message, edg}) => {
+const ComponentThree = ({ message, edg }) => {
+  useEffect(() => {
+    console.log("this is message " + message);
+  }, [message]);
 
-    useEffect(() => {
-        console.log("this is message " + message);
-    }, [message]);
-
-    useEffect(() => {
-        console.log("this is edg's num" + edg);
-    }, [edg]);
-    return (
-        <div>
-            this is component three
-        </div>
-    );
+  useEffect(() => {
+    console.log("this is edg's num" + edg);
+  }, [edg]);
+  return <div>this is component three</div>;
 };
 
 export default ComponentThree;
