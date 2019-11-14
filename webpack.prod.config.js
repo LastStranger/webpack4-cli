@@ -7,7 +7,7 @@ const webpack = require('webpack');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const path = require('path');
 module.exports = {
@@ -39,11 +39,11 @@ module.exports = {
                     { loader: MiniCssExtractPlugin.loader },
                     {
                         loader: 'css-loader',
-                        // options: {
-                        //     modules: true,
-                        //     localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                        //     sourceMap: true, /*因为打包后的文件都是被hash过和压缩过,所以当生产环境出问题了,可以方便的定位到原位置上*/
-                        // }
+                        options: {
+                            modules: true,
+                            localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                            sourceMap: true, /*因为打包后的文件都是被hash过和压缩过,所以当生产环境出问题了,可以方便的定位到原位置上*/
+                        }
                     },
                     { loader: 'postcss-loader' },
                 ],
@@ -64,11 +64,11 @@ module.exports = {
                     { loader: MiniCssExtractPlugin.loader },
                     {
                         loader: 'css-loader',
-                        // options: {
-                        //     modules: true,
-                        //     localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                        //     sourceMap: true,
-                        // }
+                        options: {
+                            modules: true,
+                            localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                            sourceMap: true,
+                        }
                     },
                     { loader: 'postcss-loader' },
                     {
@@ -100,7 +100,8 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: { loader: 'babel-loader' },
             },
-            { test: /\.tsx?$/, loaders: ['babel-loader', 'ts-loader'] },
+            { test: /\.tsx?$/, loaders: ['babel-loader'] },
+            // { test: /\.tsx?$/, loaders: ['babel-loader', 'ts-loader'] },
             {
                 test: /\.html$/,
                 use: [
@@ -186,7 +187,7 @@ module.exports = {
         // })
 
         /*开启强大的的包大小分析神器*/
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin(),
 
         /*workbox should always be last called*/
         new WorkboxWebpackPlugin.InjectManifest({

@@ -1,32 +1,52 @@
-import React, {useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 
-const ContainerOne = () => {
-    const [item, setItem] = useState(0);
-    const [itemTwo, setItemTwo] = useState(1);
 
-    useEffect(() => {
-     document.title = 'webpack';
-     console.log("useEffect processing")
-    }, [itemTwo]);
+function User({ userId }) {
+    const [user, setUser] = useState({ name: '', email: '' });
+    const [age, setAge] = useState('0');
 
-    const handleItemChange = () => {
-        setItem(item + 1);
-    };
 
-    const handleItemTwoChange = () => {
-        setItemTwo(itemTwo + 1);
-    };
+    const fetchUser = useCallback(async () => {
+        console.log('ddd');
+        setTimeout(() => {
+            const newUser = {
+                name: 'l',
+                email: '2121',
+            };
+            setUser(newUser)
+            // setAge('1')
+        }, 1000)
+    }, [userId]);
+    // const fetchUser = async () => {
+    //     console.log('ddd');
+    //     setTimeout(() => {
+    //         const newUser = {
+    //             name: 'l',
+    //             email: '2121',
+    //         };
+    //         setUser(newUser)
+    //         // setAge('1')
+    //     }, 1000)
+    // };
 
+    useLayoutEffect(() => {
+        fetchUser();
+    }, [fetchUser]);
+
+    // useLayoutEffect(() => {
+    //     fetchUser();
+    // }, [fetchUser]);
+
+    console.log(
+        'what we have lost will'
+    );
     return (
         <div>
-            <h1>containerOne</h1>
-            the item is {item}, <br/>
-            the itemTwo is {itemTwo} <br/>
-            <button onClick={handleItemChange}>change the item</button>
-            <br/>
-            <button onClick={handleItemTwoChange}>change the itemTwo</button>
+            <div>{age}</div>
+            <div>{user.name}</div>
+            <div>{user.email}</div>
         </div>
     );
-};
+}
 
-export default ContainerOne;
+export default User;

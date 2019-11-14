@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, icon } from 'antd';
 import React from 'react';
 
 const ComponentThree = () => {
@@ -7,8 +7,9 @@ const ComponentThree = () => {
     };
     return (
         <div>
-            this is the componentThree
-            <Button>dd</Button>
+            this is componentThree
+            <Button type='primary'>dd</Button>
+
         </div>
     );
 };

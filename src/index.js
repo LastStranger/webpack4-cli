@@ -10,6 +10,11 @@ import ComponentThree from './components/component_three';
 import TsDemo from './components/TsDemo';
 import ComponentFive from './components/componentFive';
 import ComponentServen from './components/componentServen';
+import UseEffectDemo from './lecture/useEffectDemo';
+import ClassDemo from './lecture/useEffectDemo/ClassDemo';
+import SpaceEvenly from './lecture/spaceEvenly';
+import ContentEditable from './lecture/contentEditable';
+import CtrlW from './lecture/ctrlW';
 // import Loadable from "react-loadable";
 
 // if ('serviceWorker' in navigator) {
@@ -48,6 +53,11 @@ const App = ({}) => (
         <ComponentThree path="three" />
         <ComponentFive path="five" />
         <ComponentServen path="seven" />
+        <UseEffectDemo path="useEffect-demo"/>
+        <SpaceEvenly path="space-evenly"/>
+        <CtrlW path="ctrl-w"/>
+        <ContentEditable path="content-editable"/>
+        <ClassDemo path='class-demo' />
         <TsDemo path="four" />
     </Router>
 );
